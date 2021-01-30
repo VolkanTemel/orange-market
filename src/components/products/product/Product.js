@@ -3,11 +3,14 @@ import axios from '../../../axios-order';
 
 class Product extends Component {
     state = {
+        oranges: [],
+        loaded: false
+    };
 
-    }
+    async componentDidMount() {
+        await this.getData();
+        this.setState({ loaded: true });
 
-    componentDidMount() {
-        this.getData();
     }
 
     getData = async () => {
@@ -18,12 +21,16 @@ class Product extends Component {
 
     render() {
 
+        const renderItems = (this.state.loaded ? this.state.oranges.map(orange => (
+            <li key={ orange.id }>{ orange.title }</li>
+        )) : <h1>Loading...</h1>)
+
         return (
             <div>
-
-            </div>
+                { renderItems }
+            </div >
         );
-    }
-}
+    };
+};
 
 export default Product;
