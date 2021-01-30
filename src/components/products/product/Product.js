@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
-import axios from '../../../axios-order';
+import image from '../../../assets/product.jpg';
+import './Product.css';
 
 class Product extends Component {
     state = {
-        oranges: [],
+        oranges: [
+            { id: 1, price: 10, title: "Washington Portakal" },
+            { id: 2, price: 5, title: "Yerli Portakal" } ],
         loaded: false
     };
 
-    async componentDidMount() {
-        await this.getData();
+    componentDidMount() {
+        // await this.getData();
         this.setState({ loaded: true });
 
     }
 
-    getData = async () => {
-        await axios.get(`Portakallar.json`)
-            .then((data) => this.setState({ oranges: data.data }))
-        console.log(this.state.oranges)
-    };
+    // getData = async () => {
+    //     await axios.get(`Portakallar.json`)
+    //         .then((data) => this.setState({ oranges: data.data }))
+    //     console.log(this.state.oranges)
+    // };
 
     render() {
 
         const renderItems = (this.state.loaded ? this.state.oranges.map(orange => (
-            <li key={ orange.id }>{ orange.title }</li>
+            <li className={ 'productList' }
+                key={ orange.id }>
+                <img src={ image } alt={ 'product' } />
+                <p>{ orange.title }</p>
+                <span>{ orange.price },00 TL</span>
+                <button>Sepete Ekle</button>
+            </li>
+
         )) : <h1>Loading...</h1>)
 
         return (
