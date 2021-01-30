@@ -1,14 +1,14 @@
 import React from 'react';
 import '../App.css';
 import Navbar from './Navbar';
-import Products from './Products';
+import Products from './products/Products';
 
 function App() {
   return (
-      <div>
-        <Navbar/>
-        <Products/>
-      </div>
+    <div>
+      <Navbar />
+      <Products />
+    </div>
   );
 }
 
