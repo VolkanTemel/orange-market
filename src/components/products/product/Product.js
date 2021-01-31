@@ -7,14 +7,22 @@ class Product extends Component {
         oranges: [
             { id: 1, price: 10, title: "Washington Portakal" },
             { id: 2, price: 5, title: "Yerli Portakal" } ],
-        loaded: false
+        loaded: false,
+        cartCounter: 0
     };
 
     componentDidMount() {
         // await this.getData();
         this.setState({ loaded: true });
 
-    }
+    };
+
+    addToCart = () => {
+        let sum = this.state.cartCounter;
+        sum = sum + 1;
+        this.setState({ cartCounter: sum })
+        console.log(sum);
+    };
 
     // getData = async () => {
     //     await axios.get(`Portakallar.json`)
@@ -30,7 +38,7 @@ class Product extends Component {
                 <img src={ image } alt={ 'product' } />
                 <p>{ orange.title }</p>
                 <span>{ orange.price },00 TL</span>
-                <button>Sepete Ekle</button>
+                <button onClick={ this.addToCart }>Sepete Ekle</button>
             </li>
 
         )) : <h1>Loading...</h1>)
@@ -38,7 +46,7 @@ class Product extends Component {
         return (
             <div>
                 { renderItems }
-            </div >
+            </div>
         );
     };
 };
