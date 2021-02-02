@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import image from '../../../assets/product.jpg';
 import './Product.css';
 
+
 class Product extends Component {
     state = {
         oranges: [
@@ -15,13 +16,6 @@ class Product extends Component {
         // await this.getData();
         this.setState({ loaded: true });
 
-    };
-
-    addToCart = () => {
-        let sum = this.state.cartCounter;
-        sum = sum + 1;
-        this.setState({ cartCounter: sum })
-        console.log(sum);
     };
 
     // getData = async () => {
@@ -38,7 +32,7 @@ class Product extends Component {
                 <img src={ image } alt={ 'product' } />
                 <p>{ orange.title }</p>
                 <span>{ orange.price },00 TL</span>
-                <button onClick={ this.addToCart }>Sepete Ekle</button>
+                <button onClick={ this.props.addToCart }>Sepete Ekle</button>
             </li>
 
         )) : <h1>Loading...</h1>)

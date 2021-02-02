@@ -1,6 +1,5 @@
-import React from 'react';
 import './Navbar.css';
-
+import React from 'react';
 
 const Navbar = () => {
     return (
@@ -11,9 +10,10 @@ const Navbar = () => {
                 <li>Ürünler</li>
                 <li>Hakkımızda</li>
                 <li>İletişim</li>
-                <li><button></button></li>
+                <li><button>Sepet</button></li>
             </ul>
         </div>
-    );
-};
+    )
+}
+
 export default Navbar;

@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 import Product from './product/Product';
 
 import './Products.css';
 
-const Products = () => {
+const Products = (props) => {
     return (
         <div className={ 'Products' }>
-            <Product />
+            <Product addToCart={ props.addToCart } />
         </div>
     )
 }
