@@ -10,7 +10,7 @@ const Navbar = (props) => {
                 <li>Ürünler</li>
                 <li>Hakkımızda</li>
                 <li>İletişim</li>
-                <li>Sepetim: { props.cartCounter }</li>
+                { props.cartCounter == 0 ? null : (<li>Sepetim: { props.cartCounter }</li>) }
             </ul>
         </div>
     )
