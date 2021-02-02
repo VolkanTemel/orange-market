@@ -9,14 +9,14 @@ export default class App extends Component {
   }
   addToCart = () => {
     let sum = this.state.cartCounter;
-    sum = sum + 1;
+    sum = parseInt(sum + 1);
     this.setState({ cartCounter: sum })
     console.log(sum);
   };
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar cartCounter={ this.state.cartCounter } />
         <Products addToCart={ this.addToCart } />
       </div>
     )
