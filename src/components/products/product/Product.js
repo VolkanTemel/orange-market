@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import image from '../../../assets/product.jpg';
 import './Product.css';
-
+import alertify from "alertifyjs";
 
 class Product extends Component {
     state = {
@@ -18,6 +18,11 @@ class Product extends Component {
 
     };
 
+    addedToCart = (e) => {
+        alertify.success(e.target.value + " Sepete Eklendi");
+        this.props.addToCart()
+    };
+
     // getData = async () => {
     //     await axios.get(`Portakallar.json`)
     //         .then((data) => this.setState({ oranges: data.data }))
@@ -32,8 +37,8 @@ class Product extends Component {
                 <img src={ image } alt={ 'product' } />
                 <p>{ orange.title }</p>
                 <span>{ orange.price },00 TL</span>
-                <button onClick={ this.props.addToCart }>Sepete Ekle</button>
-            </li>
+                <button value={ orange.title } onClick={ this.addedToCart }>Sepete Ekle</button>
+            </li >
 
         )) : <h1>Loading...</h1>)
 

@@ -38,3 +38,16 @@
   font-size: 1.1em;
   float: right;
 }
+
+.link {
+  list-style-type: none;
+  margin-left: 2%;
+  margin-right: 2%;
+  float: left;
+  color: white;
+  background-color: orange;
+  font-family: -apple-system;
+  font-size: 1.1em;
+  cursor: pointer;
+  text-decoration: none;
+}
