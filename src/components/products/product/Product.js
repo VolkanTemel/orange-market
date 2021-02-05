@@ -9,7 +9,8 @@ class Product extends Component {
             { id: 1, price: 10, title: "Washington Portakal" },
             { id: 2, price: 5, title: "Yerli Portakal" } ],
         loaded: false,
-        cartCounter: 0
+        cartCounter: 0,
+        cart: []
     };
 
     componentDidMount() {
@@ -20,6 +21,8 @@ class Product extends Component {
 
     addedToCart = (e) => {
         alertify.success(e.target.value + " Sepete Eklendi");
+        this.setState({ cart: this.state.cart + " " + e.target.value });
+        console.log(this.state.cart)
         this.props.addToCart()
     };
 

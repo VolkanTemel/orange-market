@@ -1,9 +1,9 @@
 import './Navbar.css';
 import React from 'react';
 import { Link } from "react-router-dom";
+import { FiShoppingCart } from 'react-icons/fi';
 
 const Navbar = (props) => {
-
 
     return (
         <div className="navbar">
@@ -12,7 +12,7 @@ const Navbar = (props) => {
                 <Link className="link" to="/">Ana Sayfa</Link>
                 <Link className="link" to="hakkimizda">Hakkımızda</Link>
                 <Link className="link" to="iletisim">İletişim</Link>
-                { props.cartCounter === 0 ? null : (<Link className="link" to="sepet">Sepetim: { props.cartCounter }</Link>) }
+                { props.cartCounter === 0 ? null : (<Link className="link" to="sepet"> { props.cartCounter }<FiShoppingCart /></Link>) }
             </ul >
         </div >
     )
