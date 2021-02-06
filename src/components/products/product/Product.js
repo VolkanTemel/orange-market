@@ -1,29 +1,15 @@
 import React, { Component } from 'react';
 import image from '../../../assets/product.jpg';
 import './Product.css';
-import alertify from "alertifyjs";
 
 class Product extends Component {
-    state = {
-        oranges: [
-            { id: 1, price: 10, title: "Washington Portakal" },
-            { id: 2, price: 5, title: "Yerli Portakal" } ],
-        loaded: false,
-        cartCounter: 0,
-        cart: []
-    };
+
+    state = { loaded: false }
 
     componentDidMount() {
         // await this.getData();
         this.setState({ loaded: true });
 
-    };
-
-    addedToCart = (e) => {
-        alertify.success(e.target.value + " Sepete Eklendi");
-        this.setState({ cart: this.state.cart + " " + e.target.value });
-        console.log(this.state.cart)
-        this.props.addToCart()
     };
 
     // getData = async () => {
@@ -34,13 +20,13 @@ class Product extends Component {
 
     render() {
 
-        const renderItems = (this.state.loaded ? this.state.oranges.map(orange => (
+        const renderItems = (this.state.loaded ? this.props.oranges.map(orange => (
             <li className={ 'productList' }
                 key={ orange.id }>
                 <img src={ image } alt={ 'product' } />
                 <p>{ orange.title }</p>
                 <span>{ orange.price },00 TL</span>
-                <button value={ orange.title } onClick={ this.addedToCart }>Sepete Ekle</button>
+                <button value={ orange.title } onClick={ this.props.addedToCart }>Sepete Ekle</button>
             </li >
 
         )) : <h1>Loading...</h1>)

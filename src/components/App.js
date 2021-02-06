@@ -5,17 +5,30 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NotFound from './NotFound';
 import CartList from './CartList';
+import alertify from "alertifyjs";
 
 export default class App extends Component {
 
   state = {
-    cartCounter: 0
+    oranges: [
+      { id: 1, price: 10, title: "Washington Portakal" },
+      { id: 2, price: 5, title: "Yerli Portakal" } ],
+    cartCounter: 0,
+    cart: []
   };
 
   addToCart = () => {
     let sum = this.state.cartCounter;
     sum = parseInt(sum + 1);
     this.setState({ cartCounter: sum })
+  };
+
+  addedToCart = (e) => {
+    alertify.success(e.target.value + " Sepete Eklendi");
+    this.state.cart.push(e.target.value);
+
+    console.log(this.state.cart)
+    this.addToCart()
   };
 
   render() {
@@ -32,6 +45,8 @@ export default class App extends Component {
               <Products
                 { ...props }
                 addToCart={ this.addToCart }
+                oranges={ this.state.oranges }
+                addedToCart={ this.addedToCart }
               />
             ) }
           />
@@ -47,7 +62,7 @@ export default class App extends Component {
             ) }
           />
           <Route />
-          <Route
+          <Route path="*"
             component={ NotFound } />
         </Switch>
       </div>
