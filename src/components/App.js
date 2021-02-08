@@ -26,7 +26,6 @@ export default class App extends Component {
   addedToCart = (e) => {
     alertify.success(e.target.value + " Sepete Eklendi");
     this.state.cart.push(e.target.value);
-
     console.log(this.state.cart)
     this.addToCart()
   };
