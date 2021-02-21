@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import './CartList.css'
 
 
 export default class CartList extends Component {
     render() {
         return (
-            <div>
+            <div className={ "cartList" }>
                 {this.props.cart.map((cart) => (
-                    <h1>{ cart }</h1>
+                    <p>{ cart }</p>
                 )) }
             </div>
         )

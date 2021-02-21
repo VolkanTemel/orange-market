@@ -26,7 +26,7 @@ class Product extends Component {
                 <img src={ image } alt={ 'product' } />
                 <p>{ orange.title }</p>
                 <span>{ orange.price },00 TL</span>
-                <button value={ orange.title } onClick={ this.props.addedToCart }>Sepete Ekle</button>
+                <button value={ [ orange.title + " " + orange.price + "TL" ] } onClick={ this.props.addedToCart }>Sepete Ekle</button>
             </li >
 
         )) : <h1>Loading...</h1>)
